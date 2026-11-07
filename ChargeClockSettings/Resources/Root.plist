@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>title</key>
+	<string>Charge Clock</string>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>type</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Часы показываются, когда устройство подключено к питанию.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>key</key>
+			<string>ChargeClockEnabled</string>
+			<key>label</key>
+			<string>Включить</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>key</key>
+			<string>ChargeClock24h</string>
+			<key>label</key>
+			<string>24-часовой формат</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>key</key>
+			<string>ChargeClockShowSeconds</string>
+			<key>label</key>
+			<string>Показывать секунды</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>key</key>
+			<string>ChargeClockShowDate</string>
+			<key>label</key>
+			<string>Показывать дату</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>key</key>
+			<string>ChargeClockShowBattery</string>
+			<key>label</key>
+			<string>Показывать заряд батареи</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>key</key>
+			<string>ChargeClockPixelShift</string>
+			<key>label</key>
+			<string>Пиксель-шифтинг (защита OLED)</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Яркость экрана во время показа часов. Меньше — темнее, для ночи.</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSliderSpecifier</string>
+			<key>default</key>
+			<real>0.5</real>
+			<key>key</key>
+			<string>ChargeClockBrightness</string>
+			<key>label</key>
+			<string>Яркость</string>
+			<key>min</key>
+			<real>0.1</real>
+			<key>max</key>
+			<real>1.0</real>
+		</dict>
+	</array>
+</dict>
+</plist>

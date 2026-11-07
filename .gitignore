@@ -1,0 +1,8 @@
+# Theos — промежуточные объекты и сборочные артефакты
+.theos/
+packages/
+layout/DEBIAN/
+
+# macOS / разное
+.DS_Store
+*.log

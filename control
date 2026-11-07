@@ -1,0 +1,9 @@
+Package: com.example.chargeclock
+Name: Charge Clock
+Depends: mobilesubstrate (>= 0.9.5000), preferenceloader (>= 2.2.4)
+Version: 1.0.0
+Architecture: iphoneos-arm
+Description: Большие настольные часы при зарядке
+Maintainer: You
+Author: You
+Section: Tweaks
