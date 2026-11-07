@@ -7,13 +7,13 @@
 		<key>cell</key>
 		<string>PSLinkCell</string>
 		<key>label</key>
-		<string>Charge Clock</string>
+		<string>NSC16</string>
 		<key>icon</key>
-		<string>ChargeClock.png</string>
+		<string>NSC16.png</string>
 		<key>bundle</key>
-		<string>ChargeClockSettings</string>
+		<string>NSC16Settings</string>
 		<key>class</key>
-		<string>ChargeClockSettingsController</string>
+		<string>NSC16SettingsController</string>
 	</dict>
 </dict>
 </plist>

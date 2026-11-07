@@ -1,9 +1,9 @@
 #import <Preferences/PSListController.h>
 
-@interface ChargeClockSettingsController : PSListController
+@interface NSC16SettingsController : PSListController
 @end
 
-@implementation ChargeClockSettingsController
+@implementation NSC16SettingsController
 - (id)specifiers {
     if (!_specifiers) {
         _specifiers = [self loadSpecifiersFromPlistName:@"Root" target:self];

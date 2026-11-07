@@ -1,5 +1,5 @@
-Package: com.example.chargeclock
-Name: Charge Clock
+Package: com.example.nsc16
+Name: NSC16
 Depends: mobilesubstrate (>= 0.9.5000), preferenceloader (>= 2.2.4)
 Version: 1.0.0
 Architecture: iphoneos-arm

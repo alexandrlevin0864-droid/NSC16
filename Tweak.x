@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
 
-#define kPrefsID    "com.example.chargeclock"
-#define kPrefsPath  "/var/mobile/Library/Preferences/com.example.chargeclock.plist"
+#define kPrefsID    "com.example.nsc16"
+#define kPrefsPath  "/var/mobile/Library/Preferences/com.example.nsc16.plist"
 
 static NSDictionary *CCPrefs(void) {
     CFPreferencesSynchronize(CFSTR(kPrefsID), kCFPreferencesCurrentUser, kCFPreferencesAnyHost);
@@ -18,7 +18,7 @@ static CGFloat CCFloat(NSString *key, CGFloat def) {
 }
 
 /* ================= Core ================= */
-@interface ChargeClockController : UIViewController
+@interface NSC16Controller : UIViewController
 @property (nonatomic, strong) UILabel *timeLabel;
 @property (nonatomic, strong) UILabel *infoLabel;
 @property (nonatomic, strong) UIProgressView *batteryBar;
@@ -29,12 +29,12 @@ static CGFloat CCFloat(NSString *key, CGFloat def) {
 @property (nonatomic, assign) BOOL active;
 @end
 
-@implementation ChargeClockController
+@implementation NSC16Controller
 
 + (instancetype)shared {
-    static ChargeClockController *s = nil;
+    static NSC16Controller *s = nil;
     static dispatch_once_t once;
-    dispatch_once(&once, ^{ s = [ChargeClockController new]; });
+    dispatch_once(&once, ^{ s = [NSC16Controller new]; });
     return s;
 }
 
@@ -103,7 +103,7 @@ static CGFloat CCFloat(NSString *key, CGFloat def) {
                                                  selector:@selector(tick:)
                                                  userInfo:nil
                                                   repeats:YES];
-    if (CCBool(@"ChargeClockPixelShift", YES)) {
+    if (CCBool(@"NSC16PixelShift", YES)) {
         [self scheduleShift];
     }
 }
@@ -128,33 +128,33 @@ static CGFloat CCFloat(NSString *key, CGFloat def) {
 - (void)updateAll {
     NSDate *now = [NSDate date];
 
-    self.timeFmt.dateFormat = CCBool(@"ChargeClock24h", YES) ? @"HH:mm" : @"h:mm a";
+    self.timeFmt.dateFormat = CCBool(@"NSC1624h", YES) ? @"HH:mm" : @"h:mm a";
     NSString *time = [self.timeFmt stringFromDate:now];
-    if (CCBool(@"ChargeClockShowSeconds", YES)) {
+    if (CCBool(@"NSC16ShowSeconds", YES)) {
         self.timeFmt.dateFormat = [self.timeFmt.dateFormat stringByAppendingString:@":ss"];
         time = [self.timeFmt stringFromDate:now];
     }
     self.timeLabel.text = time;
 
     NSMutableArray *parts = [NSMutableArray array];
-    if (CCBool(@"ChargeClockShowDate", YES)) {
+    if (CCBool(@"NSC16ShowDate", YES)) {
         self.dateFmt.dateFormat = @"EEEE, MMMM d";
         [parts addObject:[self.dateFmt stringFromDate:now]];
     }
-    if (CCBool(@"ChargeClockShowBattery", YES)) {
+    if (CCBool(@"NSC16ShowBattery", YES)) {
         CGFloat lvl = [UIDevice currentDevice].batteryLevel;
         [parts addObject:[NSString stringWithFormat:@"%d%%", (int)(lvl * 100)]];
     }
     self.infoLabel.text = [parts componentsJoinedByString:@"  ·  "];
 
-    self.batteryBar.hidden = !CCBool(@"ChargeClockShowBattery", YES);
+    self.batteryBar.hidden = !CCBool(@"NSC16ShowBattery", YES);
     if (!self.batteryBar.hidden) {
         self.batteryBar.progress = [UIDevice currentDevice].batteryLevel;
     }
 }
 
 - (void)applyBrightness {
-    CGFloat b = CCFloat(@"ChargeClockBrightness", 0.5);
+    CGFloat b = CCFloat(@"NSC16Brightness", 0.5);
     [[UIScreen mainScreen] setBrightness:b];
 }
 
@@ -164,7 +164,7 @@ static CGFloat CCFloat(NSString *key, CGFloat def) {
 }
 
 - (void)shift {
-    if (!self.active || !CCBool(@"ChargeClockPixelShift", YES)) return;
+    if (!self.active || !CCBool(@"NSC16PixelShift", YES)) return;
     NSInteger ox = (NSInteger)(arc4random_uniform(21)) - 10;
     NSInteger oy = (NSInteger)(arc4random_uniform(21)) - 10;
     [UIView animateWithDuration:1.0 animations:^{
@@ -179,7 +179,7 @@ static CGFloat CCFloat(NSString *key, CGFloat def) {
 /* ---------- слушатель батареи ---------- */
 - (void)batteryStateChanged {
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (!CCBool(@"ChargeClockEnabled", YES)) { [self deactivate]; return; }
+        if (!CCBool(@"NSC16Enabled", YES)) { [self deactivate]; return; }
         UIDeviceBatteryState st = [UIDevice currentDevice].batteryState;
         if (st == UIDeviceBatteryStateCharging || st == UIDeviceBatteryStateFull) {
             [self activate];
@@ -195,11 +195,11 @@ static CGFloat CCFloat(NSString *key, CGFloat def) {
 %ctor {
     [UIDevice currentDevice].batteryMonitoringEnabled = YES;
     [[NSNotificationCenter defaultCenter]
-        addObserver:[ChargeClockController shared]
+        addObserver:[NSC16Controller shared]
            selector:@selector(batteryStateChanged)
                name:UIDeviceBatteryStateDidChangeNotification
              object:nil];
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[ChargeClockController shared] batteryStateChanged];
+        [[NSC16Controller shared] batteryStateChanged];
     });
 }

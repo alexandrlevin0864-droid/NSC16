@@ -1,4 +1,4 @@
-# Charge Clock
+# NSC16
 
 Твик для джейлбрейк-устройств iPhone (Theos): превращает устройство в настольные часы, пока оно заряжается.
 
@@ -21,7 +21,7 @@
 
 ```bash
 make package FINALPACKAGE=1
-# готовый пакет: packages/com.example.chargeclock_1.0.0_iphoneos-arm.deb
+# готовый пакет: packages/com.example.nsc16_1.0.0_iphoneos-arm.deb
 ```
 
 ### Rootless (Dopamine / Palera1n rootless)
@@ -37,15 +37,15 @@ export THEOS_PACKAGE_SCHEME = rootless
 Загрузи пакет на устройство по SSH и установи:
 
 ```bash
-scp packages/com.example.chargeclock_1.0.0_iphoneos-arm.deb root@<IP>:/ 
-ssh root@<IP> "dpkg -i /com.example.chargeclock_1.0.0_iphoneos-arm.deb && sbreload"
+scp packages/com.example.nsc16_1.0.0_iphoneos-arm.deb root@<IP>:/ 
+ssh root@<IP> "dpkg -i /com.example.nsc16_1.0.0_iphoneos-arm.deb && sbreload"
 ```
 
 Или установи `.deb` через Sileo / Installer.
 
 ## Настройки
 
-После установки и респринга: **Настройки → Charge Clock**
+После установки и респринга: **Настройки → NSC16**
 
 - **Включить** — мастер-переключатель твика
 - **24-часовой формат** — переключение 12/24
@@ -58,14 +58,14 @@ ssh root@<IP> "dpkg -i /com.example.chargeclock_1.0.0_iphoneos-arm.deb && sbrelo
 ## Структура
 
 ```
-ChargeClock/
+NSC16/
 ├── control                  # метаданные пакета
 ├── Makefile                 # сборка твика + бандла настроек
-├── ChargeClock.plist        # вход в «Настройках» (PreferenceLoader)
+├── NSC16.plist              # вход в «Настройках» (PreferenceLoader)
 ├── Filter.plist             # инъекция в SpringBoard
 ├── Tweak.x                  # логика твика (Logos)
-└── ChargeClockSettings/     # бандл панели настроек
-    ├── ChargeClockSettings.m
+└── NSC16Settings/           # бандл панели настроек
+    ├── NSC16Settings.m
     └── Resources/Root.plist
 ```
 

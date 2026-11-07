@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>title</key>
-	<string>Charge Clock</string>
+	<string>NSC16</string>
 	<key>items</key>
 	<array>
 		<dict>
@@ -18,7 +18,7 @@
 			<key>default</key>
 			<true/>
 			<key>key</key>
-			<string>ChargeClockEnabled</string>
+			<string>NSC16Enabled</string>
 			<key>label</key>
 			<string>Включить</string>
 		</dict>
@@ -28,7 +28,7 @@
 			<key>default</key>
 			<true/>
 			<key>key</key>
-			<string>ChargeClock24h</string>
+			<string>NSC1624h</string>
 			<key>label</key>
 			<string>24-часовой формат</string>
 		</dict>
@@ -38,7 +38,7 @@
 			<key>default</key>
 			<true/>
 			<key>key</key>
-			<string>ChargeClockShowSeconds</string>
+			<string>NSC16ShowSeconds</string>
 			<key>label</key>
 			<string>Показывать секунды</string>
 		</dict>
@@ -48,7 +48,7 @@
 			<key>default</key>
 			<true/>
 			<key>key</key>
-			<string>ChargeClockShowDate</string>
+			<string>NSC16ShowDate</string>
 			<key>label</key>
 			<string>Показывать дату</string>
 		</dict>
@@ -58,7 +58,7 @@
 			<key>default</key>
 			<true/>
 			<key>key</key>
-			<string>ChargeClockShowBattery</string>
+			<string>NSC16ShowBattery</string>
 			<key>label</key>
 			<string>Показывать заряд батареи</string>
 		</dict>
@@ -68,7 +68,7 @@
 			<key>default</key>
 			<true/>
 			<key>key</key>
-			<string>ChargeClockPixelShift</string>
+			<string>NSC16PixelShift</string>
 			<key>label</key>
 			<string>Пиксель-шифтинг (защита OLED)</string>
 		</dict>
@@ -84,7 +84,7 @@
 			<key>default</key>
 			<real>0.5</real>
 			<key>key</key>
-			<string>ChargeClockBrightness</string>
+			<string>NSC16Brightness</string>
 			<key>label</key>
 			<string>Яркость</string>
 			<key>min</key>

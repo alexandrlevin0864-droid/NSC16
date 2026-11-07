@@ -6,17 +6,17 @@ export ARCHS = arm64 arm64e
 
 include $(THEOS)/makefiles/common.mk
 
-TWEAK_NAME = chargeclock
-chargeclock_FILES = Tweak.x
-chargeclock_CFLAGS = -fobjc-arc
+TWEAK_NAME = nsc16
+nsc16_FILES = Tweak.x
+nsc16_CFLAGS = -fobjc-arc
 include $(THEOS_MAKE_PATH)/tweak.mk
 
-BUNDLE_NAME = ChargeClockSettings
-ChargeClockSettings_FILES = ChargeClockSettings/ChargeClockSettings.m
-ChargeClockSettings_INSTALL_PATH = /Library/PreferenceBundles
-ChargeClockSettings_FRAMEWORKS = UIKit
+BUNDLE_NAME = NSC16Settings
+NSC16Settings_FILES = NSC16Settings/NSC16Settings.m
+NSC16Settings_INSTALL_PATH = /Library/PreferenceBundles
+NSC16Settings_FRAMEWORKS = UIKit
 include $(THEOS_MAKE_PATH)/bundle.mk
 
 after-stage::
 	mkdir -p $(THEOS_STAGING_DIR)/Library/PreferenceLoader/Preferences
-	cp ChargeClock.plist $(THEOS_STAGING_DIR)/Library/PreferenceLoader/Preferences/ChargeClock.plist
+	cp NSC16.plist $(THEOS_STAGING_DIR)/Library/PreferenceLoader/Preferences/NSC16.plist
